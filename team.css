@@ -1,0 +1,235 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #0d0d0d;
+  color: #fff;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1000px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  background: #1a1a1a;
+  margin-top: 4rem;
+}
+
+.names {
+  width: 35%;
+  background-color: #1a1a1a;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+
+.name {
+  cursor: pointer;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 10px 14px;
+  border-radius: 6px;
+  background-color: transparent;
+  transition: background 0.3s ease;
+}
+
+.name:hover,
+.name.selected {
+  background-color: #2c2c2c;
+}
+
+.display {
+  position: relative;
+  width: 65%;
+  width: 300px;
+  background-color: #111;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  overflow: hidden;
+}
+
+.avatar {
+  position: absolute;
+  opacity: 0;
+  transform: scale(0.8) rotate(-5deg);
+  transition: all 0.4s ease;
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.avatar.active {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+  z-index: 1;
+}
+
+/* 📱 Mobile View */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .display {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  .avatar {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+
+  .names {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .name {
+    font-size: 1em;
+    padding: 8px 12px;
+  }
+}
+
+/* CSS of infi scroll*/
+
+/* Your CSS from the original code */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.worked-with-section {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.worked-with-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.scroll-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 20px 0;
+  background-color: #1a1a1a;
+}
+
+/* Updated to have a fixed width to support the seamless loop */
+.scroll-content {
+  display: flex;
+  gap: 30px; /* spacing between items */
+  animation: infiniteScroll 25s linear infinite;
+  width: calc(300px * 20 + 30px * 19); /* 20 items + 19 gaps */
+}
+
+.review-post {
+  flex: 0 0 300px;
+  background-color: #2c2c2c;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.review-post:hover {
+  transform: scale(1.05);
+}
+
+.review-post::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  transition: background-color 0.1s ease-in-out;
+}
+
+.review-post:hover::before {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.review-post h3,
+.review-post p {
+  position: relative;
+  z-index: 2;
+}
+
+/* Individual backgrounds for each company */
+.company-1 {
+  background-image: url("https://images-prd.deshabhimani.com/tcs-1753630206344-9b1cf002-d24f-48e3-9ff8-219f0cb90aaf-900x506.webp");
+}
+.company-2 {
+  background-image: url("https://images.yourstory.com/cs/2/e35953e0c10a11eeaef14be6ff40ae87/Image18jx-1709630553413.jpg?mode=crop&crop=faces&ar=2%3A1&format=auto&w=1920&q=75");
+}
+.company-3 {
+  background-image: url("https://blog.ksom.ac.in/wp-content/uploads/2024/12/starbucks-leadership.jpg");
+}
+.company-4 {
+  background-image: url("https://rashigoel.com/wp-content/uploads/2023/07/cultfit.webp");
+}
+.company-5 {
+  background-image: url("https://businessoutreach.in/wp-content/uploads/2021/12/Indias-no.1-earwear-audio-brand..jpg");
+}
+.company-6 {
+  background-image: url("https://inc42.com/cdn-cgi/image/quality=75/https://asset.inc42.com/2023/05/Dominos-ONDC-feature.png");
+}
+.company-7 {
+  background-image: url("https://play-lh.googleusercontent.com/5RCm2CM2n5y-MxuNewhpkijS2veFyL0hQLT1UGMinZ9rf1PygvagcriTsdKU-u-xZ0lW");
+}
+.company-8 {
+  background-image: url("https://akm-img-a-in.tosshub.com/indiatoday/images/story/202101/Vivo-New-Logo-2019_1200x768.jpeg");
+}
+.company-9 {
+  background-image: url("https://images.forbesindia.com/media/images/2024/Dec/img_241074_shutterstock_2328921713_bg.jpg");
+}
+.company-10 {
+  background-image: url("https://indiancompanies.in/wp-content/uploads/2025/06/Hindustan-Unilever-Limited-Fast-Moving-Consumer-Goods-FMCG-company.png");
+}
+
+/* Keyframe animation for the infinite scroll */
+@keyframes infiniteScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
