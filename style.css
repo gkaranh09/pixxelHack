@@ -16,33 +16,33 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
 }
 
 body {
+  height: 100%;
+  width: 100%;
   font-family: "Roboto", sans-serif;
-  background-image: url("./image.png"); /* Replace with your image URL */
-  background-size: cover; /* Ensures the image covers the entire viewport */
-  background-position: center; /* Centers the image */
-  background-attachment: fixed; /* Keeps the background in place while scrolling */
-  color: #ffffff; /* Example: light color for text to be visible */
+  background-image: url("./image1.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #ffffff;
   overflow-x: hidden;
-  position: relative; /* Essential for positioning the overlay */
+  display: flex;
+  /* justify-content: center; */
 }
 
-body::before {
-  content: "";
-  position: absolute;
+.overlay {
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Black with 50% transparency */
-  z-index: -1; /* Puts the overlay behind all other content */
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
 }
 
-/* You might want to remove the 'overflow-y: hidden;' from your previous code
-   if you want the page to be scrollable. */
 h1,
 h2,
 h3,
@@ -51,7 +51,7 @@ h3,
   font-family: "Montserrat", sans-serif;
 }
 
-/* --- Element 1: Loader Styles --- */
+/* --- Loader Styles --- */
 .loader {
   position: fixed;
   top: 0;
@@ -95,7 +95,7 @@ h3,
   visibility: hidden;
 }
 
-/* --- Element 8: Ripple Canvas --- */
+/* --- Ripple Canvas --- */
 #ripple-canvas {
   position: fixed;
   top: 0;
@@ -107,8 +107,8 @@ h3,
 
 /* --- Main Content & Header --- */
 .main-content {
+  /* background-color: red; */
   position: relative;
-  /* z-index: 10; */
   padding: 0 5%;
   opacity: 0;
   transition: opacity 1s ease-in;
@@ -141,12 +141,11 @@ header {
   font-weight: 900;
   font-size: 1.5rem;
   z-index: 101;
-  /* background: rgb(224, 221, 221); */
   padding: 1rem;
   border-radius: 0.5rem;
 }
 
-/* --- Element 4: Navbar Styles --- */
+/* --- Navbar Styles --- */
 .menu-toggle {
   width: 50px;
   height: 50px;
@@ -217,7 +216,7 @@ header {
   color: #333;
 }
 
-/* --- Hero Section & Element 9: Text Animation --- */
+/* --- Hero Section & Text Animation --- */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -334,7 +333,6 @@ header {
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 1.5rem;
 }
-/* ADDED THIS STYLE FOR THE NEW LINK */
 .work-link {
   text-decoration: none;
   color: inherit;
@@ -385,7 +383,7 @@ header {
 }
 .contact-email {
   font-family: "Montserrat";
-  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-size: clamp(1.5rem, 5vw, 3rem);
   font-weight: 700;
   color: var(--primary-text-color);
   text-decoration: none;
@@ -407,33 +405,77 @@ footer p {
 
 /* --- Responsiveness --- */
 @media (max-width: 768px) {
-  .loader-text,
-  .loader-text-small {
-    font-size: 3rem;
+  /* General Spacing and Layout */
+  .main-content {
+    padding: 0 1rem;
   }
+
+  header {
+    padding: 1.5rem 1rem;
+  }
+  .menu-toggle {
+    margin-right: 0;
+  }
+
+  /* Hero Section Typography */
+  .headline {
+    font-size: clamp(2.5rem, 12vw, 8rem);
+  }
+  .word-box {
+    font-size: clamp(2.5rem, 12vw, 8rem);
+    font-weight: 900;
+  }
+  .word-box-wrapper {
+    font-size: clamp(2.5rem, 12vw, 8rem);
+    margin: 0;
+    overflow: visible;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .spacer {
+    font-size: clamp(1.5rem, 7vw, 5rem);
+    height: 50vh;
+  }
+
+  /* About Section */
+  .about-content {
+    flex-direction: column;
+
+    gap: 2rem;
+  }
+
+  /* Services Grid */
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Work Grid */
+  .work-grid {
+    width: 100%;
+    /* background-color: red;
+    border: 1px solid red; */
+    grid-template-columns: 1fr;
+    place-items: center;
+  }
+
+  /* Navigation Overlay */
   .nav-link {
     font-size: 2.5rem;
   }
-  .about-content {
-    flex-direction: column;
+
+  /* Loader */
+  .loader-text,
+  .loader-text-small {
+    font-size: 2.5rem;
   }
-  .work-grid {
-    grid-template-columns: 1fr;
-  }
-  .word-box {
-    font-weight: 900;
-    font-size: 1000px;
-    text-transform: uppercase;
-    line-height: normal;
-    letter-spacing: -2px;
-  }
-  .word-box-wrapper {
-    font-size: 7rem;
+  .logo {
+    font-size: 4rem;
   }
 }
 
-/* styling fr texxt collapsing*/
-.spacer {
+/* Styles for Text Collapsing */
+/* .spacer {
   height: 70vh;
   display: flex;
   align-items: flex-end;
@@ -442,24 +484,17 @@ footer p {
   padding-bottom: 20px;
   box-sizing: border-box;
 }
-
 .word-box-wrapper {
-  /* width: 200px; */
   height: 100px;
   overflow: hidden;
   position: relative;
   background-color: transparent;
-  /* border: 1px solid red; */
-  /* margin: 1rem 0;  */
 }
-
 .word-box {
   width: 100%;
   height: 100%;
-  /* background-color: #4caf50; */
   color: white;
-
-  font-size: 8rem;
+  font-size: clamp(3rem, 8vw, 8rem);
   font-weight: 900;
   text-transform: uppercase;
   line-height: 1;
@@ -467,5 +502,4 @@ footer p {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
+} */

@@ -14,6 +14,7 @@
   overflow: hidden;
   position: relative;
   background-color: transparent;
+  font-size: clamp(3rem, 8vw, 8rem);
   /* margin: 1rem 0;  */
 }
 
@@ -26,8 +27,9 @@
   font-weight: 900;
   text-transform: uppercase;
   line-height: 1;
-  letter-spacing: -2px;
+  /* letter-spacing: -2px; */
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
