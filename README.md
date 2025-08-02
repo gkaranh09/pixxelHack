@@ -1,4 +1,4 @@
 Live page
-https://github.com/gkaranh09/pixxelHack
+https://gkaranh09.github.io/pixxelHack/
 
 Website for company which makes creative Technical Products
